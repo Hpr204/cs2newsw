@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS2 НОВОСТИ | Реальные новости CS2</title>
     
+    <!-- ===== ИКОНКА САЙТА (ФАВИКОН) ИЗ ЛОГОТИПА ===== -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='url(%23grad)'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='%230a0c0f' font-weight='900'>H2</text><defs><linearGradient id='grad'><stop offset='0%25' stop-color='%23ffd700'/><stop offset='100%25' stop-color='%23ff8c00'/></linearGradient></defs></svg>">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='url(%23grad)'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='%230a0c0f' font-weight='900'>H2</text><defs><linearGradient id='grad'><stop offset='0%25' stop-color='%23ffd700'/><stop offset='100%25' stop-color='%23ff8c00'/></linearGradient></defs></svg>">
+    
     <!-- SEO мета-теги -->
     <meta name="description" content="Реальные новости Counter-Strike 2 с HLTV.org на русском. Свежие обновления, патчи, турниры и события CS2.">
     <meta name="keywords" content="CS2 новости, Counter-Strike 2, HLTV, обновления CS2, патчи CS2, турниры CS2">
     <meta name="author" content="CS2 HUB">
     <meta name="robots" content="index, follow">
     
-    <!-- Шрифты и иконки (ТАКИЕ ЖЕ, КАК НА ГЛАВНОЙ) -->
+    <!-- Шрифты и иконки -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* ===== ТОЧНО ТАКИЕ ЖЕ СТИЛИ, КАК НА ГЛАВНОЙ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +36,6 @@
             overflow-x: hidden;
         }
 
-        /* Такой же фон с эффектами */
         body::before {
             content: '';
             position: fixed;
@@ -56,7 +58,6 @@
             z-index: 1;
         }
 
-        /* ===== ТАКАЯ ЖЕ ШАПКА С АНИМИРОВАННЫМ ЛОГОТИПОМ ===== */
         header {
             background: rgba(10, 12, 15, 0.8);
             backdrop-filter: blur(20px);
@@ -81,14 +82,12 @@
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6);
         }
 
-        /* КОНТЕЙНЕР ДЛЯ ЛОГОТИПА И НАЗВАНИЯ */
         .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        /* ===== ТОТ ЖЕ УНИКАЛЬНЫЙ АНИМИРОВАННЫЙ ЛОГОТИП ===== */
         .custom-logo {
             width: 60px;
             height: 60px;
@@ -159,7 +158,6 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Вращающееся кольцо */
         .logo-ring {
             position: absolute;
             top: -3px;
@@ -193,7 +191,6 @@
             to { background-position: 200% center; }
         }
 
-        /* Навигация */
         nav {
             display: flex;
             gap: 30px;
@@ -241,13 +238,12 @@
             width: 100%;
         }
 
-        /* Заголовок страницы */
-        .header {
+        .header-title {
             text-align: center;
             margin: 40px 0;
         }
 
-        .header h2 {
+        .header-title h2 {
             font-size: 48px;
             font-weight: 800;
             background: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
@@ -258,7 +254,7 @@
             margin-bottom: 10px;
         }
 
-        .header p {
+        .header-title p {
             color: rgba(255, 255, 255, 0.6);
             font-size: 16px;
         }
@@ -283,7 +279,6 @@
             animation: pulse 2s infinite;
         }
 
-        /* Сетка новостей */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -385,7 +380,6 @@
             text-decoration: underline;
         }
 
-        /* Загрузка */
         .loading {
             text-align: center;
             padding: 60px;
@@ -398,11 +392,6 @@
             margin-bottom: 20px;
         }
 
-        .loading p {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Ошибка */
         .error {
             text-align: center;
             padding: 60px;
@@ -429,28 +418,38 @@
             text-decoration: none;
         }
 
-        .error a:hover {
-            text-decoration: underline;
-        }
-
-        /* Подвал */
-        .footer {
+        footer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 40px;
+            margin-top: 50px;
             text-align: center;
-            margin: 60px 0 20px;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 14px;
         }
 
-        .footer a {
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
             color: #ffd700;
-            text-decoration: none;
+            transform: translateY(-5px);
         }
 
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Адаптация */
         @media (max-width: 700px) {
             header {
                 flex-direction: column;
@@ -459,7 +458,7 @@
             nav {
                 justify-content: center;
             }
-            .header h2 {
+            .header-title h2 {
                 font-size: 36px;
             }
             .news-grid {
@@ -470,7 +469,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- ШАПКА С АНИМИРОВАННЫМ ЛОГОТИПОМ (ТОЧНО КАК НА ГЛАВНОЙ) -->
         <header>
             <div class="logo-container">
                 <div class="custom-logo">
@@ -490,8 +488,7 @@
             </nav>
         </header>
 
-        <!-- Заголовок страницы новостей -->
-        <div class="header">
+        <div class="header-title">
             <h2>🎯 НОВОСТИ CS2</h2>
             <p>Реальные новости Counter-Strike 2 с HLTV.org на русском</p>
             <div class="live-indicator">
@@ -500,7 +497,6 @@
             </div>
         </div>
 
-        <!-- Сетка новостей -->
         <div class="news-grid" id="newsGrid">
             <div class="loading">
                 <i class="fas fa-spinner fa-spin"></i>
@@ -508,14 +504,19 @@
             </div>
         </div>
 
-        <!-- Подвал -->
-        <div class="footer">
+        <footer>
             <p>Данные предоставлены <a href="https://www.hltv.org" target="_blank">HLTV.org</a> | © 2026 Новости CS2</p>
-        </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitch"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-steam"></i></a>
+            </div>
+        </footer>
     </div>
 
     <script>
-        // Функция для получения реальных новостей с HLTV (та же, что и была)
         async function fetchRealNews() {
             const newsGrid = document.getElementById('newsGrid');
             
@@ -593,10 +594,7 @@
             return 'дней';
         }
 
-        // Загружаем новости
         fetchRealNews();
-
-        // Обновляем каждые 5 минут
         setInterval(fetchRealNews, 300000);
     </script>
 </body>
